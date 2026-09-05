@@ -1,0 +1,47 @@
+name: Eval Gate
+
+# Runs on every PR targeting main, and on direct pushes to main.
+# Both eval suites must pass — a failing suite blocks the merge.
+#
+# Required GitHub Secrets (Settings → Secrets → Actions):
+#   AZURE_SEARCH_API_KEY   — Azure AI Search query key
+#   AZURE_FOUNDRY_API_KEY  — Azure AI Foundry API key (used for embeddings + agent)
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  eval:
+    name: Retrieval + Agent Eval
+    runs-on: ubuntu-latest
+
+    env:
+      # Non-secret endpoints — safe to hardcode
+      AZURE_SEARCH_ENDPOINT: https://srch-zuqah-cs-dev.search.windows.net
+      AZURE_SEARCH_INDEX: zuqah-policies
+      AZURE_OPENAI_ENDPOINT: https://aif-zuqah-cs-dev.openai.azure.com/
+      AZURE_COGNITIVE_ENDPOINT: https://aif-zuqah-cs-dev.cognitiveservices.azure.com/
+      AZURE_OPENAI_EMBEDDING_MODEL: text-embedding-3-large
+      AZURE_OPENAI_AGENT_MODEL: gpt-5.1
+      # Secrets injected at runtime
+      AZURE_SEARCH_API_KEY: ${{ secrets.AZURE_SEARCH_API_KEY }}
+      AZURE_FOUNDRY_API_KEY: ${{ secrets.AZURE_FOUNDRY_API_KEY }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Retrieval eval
+        run: bun run scripts/eval-retrieval.ts
+
+      - name: Agent eval
+        run: bun run scripts/eval-agent.ts
