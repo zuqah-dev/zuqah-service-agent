@@ -1,0 +1,47 @@
+{
+  "name": "zuqah-service-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Zuqah Technologies Service Agent — a five-stage Customer Service demonstration on Azure",
+  "scripts": {
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "start": "bun server.js",
+    "typecheck": "react-router typegen && tsc --noEmit",
+    "format": "prettier --write \"app/**/*.{ts,tsx,css}\"",
+    "docker:build": "docker build -t <acr-name>.azurecr.io/zuqah-cs/app:dev .",
+    "docker:push": "az acr login -n <acr-name> && docker push <acr-name>.azurecr.io/zuqah-cs/app:dev"
+  },
+  "dependencies": {
+    "@react-router/express": "^7.1.1",
+    "@react-router/node": "^7.1.1",
+    "@react-router/serve": "^7.1.1",
+    "clsx": "^2.1.1",
+    "compression": "^1.7.5",
+    "express": "^4.21.2",
+    "isbot": "^5.1.17",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router": "^7.1.1",
+    "remix-auth": "^4.1.0",
+    "tailwind-merge": "^2.5.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@react-router/dev": "^7.1.1",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.17",
+    "@types/react-dom": "^18.3.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

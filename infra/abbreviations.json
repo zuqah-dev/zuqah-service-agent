@@ -1,0 +1,13 @@
+{
+  "resourcesResourceGroups": "rg-",
+  "operationalInsightsWorkspaces": "log-",
+  "insightsComponents": "appi-",
+  "keyVaultVaults": "kv-",
+  "dBforPostgreSQLServers": "psql-",
+  "cognitiveServicesAiFoundry": "aif-",
+  "searchSearchServices": "srch-",
+  "storageStorageAccounts": "st",
+  "containerRegistries": "cr",
+  "webServerFarms": "asp-",
+  "webSitesAppService": "app-"
+}
