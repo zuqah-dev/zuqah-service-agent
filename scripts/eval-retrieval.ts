@@ -3,6 +3,7 @@
  *
  *   bun run scripts/eval-retrieval.ts
  *   bun run scripts/eval-retrieval.ts --verbose    show every result, not only failures
+ *   bun run scripts/eval-retrieval.ts --help        (not implemented, this comment is a CI smoke test)
  *
  * This runs before the agent exists, deliberately. A language model cannot rescue
  * bad retrieval, but it will hide it behind fluent prose — so retrieval is
