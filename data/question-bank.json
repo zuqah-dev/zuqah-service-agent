@@ -542,9 +542,9 @@
     },
     {
       "group": "gaps",
-      "q": "Is there a company canteen or subsidised meal facility in the office?",
+      "q": "Does the company offer free gym membership or access to a fitness centre as part of the employee benefits?",
       "expectedDoc": null,
-      "note": "No cafeteria, canteen, or meal subsidy policy exists in the corpus. Correct answer: not documented — contact Facilities."
+      "note": "No gym membership or fitness benefit policy exists in the corpus. Vocabulary absent from all 40 docs — replaced canteen which scored above the relevance floor when the agent reformulated the query."
     },
     {
       "group": "gaps",
