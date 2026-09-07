@@ -542,9 +542,9 @@
     },
     {
       "group": "gaps",
-      "q": "Is there a company canteen or subsidised meal facility in the office?",
+      "q": "Does the company offer a salary advance or interest-free staff loan for employees facing financial hardship?",
       "expectedDoc": null,
-      "note": "No cafeteria, canteen, or meal subsidy policy exists in the corpus. Correct answer: not documented — contact Facilities."
+      "note": "No salary advance or staff loan policy exists in the corpus. Verified absent from all 40 docs — 'salary advance' and 'staff loan' appear nowhere. Payroll doc covers payment processing only, not advances."
     },
     {
       "group": "gaps",
